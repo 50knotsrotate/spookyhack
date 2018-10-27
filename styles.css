@@ -9,3 +9,8 @@ canvas {
   margin: 0 auto;
   background-color: #fff;
 }
+
+canvas:hover {
+   cursor: url(http://www.rw-designer.com/cursor-extern.php?id=65179), pointer;
+}
+
