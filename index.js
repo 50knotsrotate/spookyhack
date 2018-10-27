@@ -27,8 +27,6 @@ const onMouseMove = (e) => {
 
   let isMousePressed = e.buttons > 0
 
-  if (!isMousePressed && !currentShape) return
-
   if (!checkPumpkinBounds(coordinates.x, coordinates.y)) {
     document.body.style.cursor = 'default'
     return
