@@ -2,6 +2,11 @@ const canvas = document.getElementById('canvass')
 const context = canvas.getContext('2d')
 const pumpkinCoords = { x: 390, y: 300, r: 240 }
 
+var bats = new Image()
+bats.src = "https://www.kirupa.com/stuff/sprites_blue.png";
+
+context.drawImage(bats, 10,10)
+
 
 
 const checkPumpkinBounds = (x, y) => Math.sqrt((x-pumpkinCoords.x)*(x-pumpkinCoords.x) + (y-pumpkinCoords.y)*(y-pumpkinCoords.y)) < pumpkinCoords.r
