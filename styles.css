@@ -1,8 +1,11 @@
 body {
-  background-color: #ddd;
+  background-color: #000;
+  padding: 0;
+  margin: 0;
 }
 canvas {
   width: 800px;
   height: 800px;
-  background-color: gray;
+  margin: 0 auto;
+  background-color: #fff;
 }
