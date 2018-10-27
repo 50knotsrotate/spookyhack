@@ -1,5 +1,7 @@
 const canvas = document.getElementById('canvass')
 const context = canvas.getContext('2d')
+let firstMousePosition = null
+let lastMousePosition = { x: null, y: null }
 
 //<<<<<<< HEAD
 
@@ -15,16 +17,39 @@ const make_base = () => {
 
 make_base()
 
-const onMouseDown = (e) => {
+const onMouseMove = (e) => {
+  if (e.buttons === 0 && !firstMousePosition) return
+
   const rect = canvas.getBoundingClientRect()
   const coordinates = {
     x: e.x - rect.left + window.scrollX,
     y: e.y + window.scrollX
   }
-  console.log(e)
-  context.fillRect(coordinates.x, e.y, 2, 2)
-  console.log(coordinates)
+
+  if (!firstMousePosition) {
+    firstMousePosition = coordinates
+    context.beginPath()
+  }
+
+  if (lastMousePosition.x && lastMousePosition.y) {
+    context.lineTo(coordinates.x, coordinates.y)
+  } else {
+    context.moveTo(coordinates.x, coordinates.y)
+    context.lineTo(coordinates.x, coordinates.y)
+  }
+
+  lastMousePosition = coordinates
+
+  if (e.buttons === 0 && firstMousePosition) {
+    context.lineTo(firstMousePosition.x, firstMousePosition.y)
+    context.closePath()
+    context.lineWidth = 3
+    context.fillStyle = '#000000'
+    context.fill()
+    context.stroke()
+    firstMousePosition = null
+    lastMousePosition = { x: null, y: null }
+  }
 }
 
-canvas.addEventListener("mousedown", onMouseDown)
-
+canvas.addEventListener("mousemove", onMouseMove)

@@ -14,3 +14,7 @@ canvas:hover {
    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=65179), pointer;
 }
 
+canvas:active {
+    cursor: url('/imgages/cursor1.gif'), pointer;
+}
+
