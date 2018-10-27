@@ -12,22 +12,21 @@ canvas {
   background-repeat: repeat-x;
 }
 
-<<<<<<< HEAD
 canvas:hover {
-   cursor: url(http://www.rw-designer.com/cursor-extern.php?id=65179), pointer;
+  cursor: url(http://www.rw-designer.com/cursor-extern.php?id=65179), pointer;
 }
 
 canvas:active {
-    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=60402), pointer;
-
-#header {
-  position: relative;
-  left: 42%;
-  width: 400px;
-  height: 100px;
-
+  cursor: url(http://www.rw-designer.com/cursor-extern.php?id=60402), pointer;
 }
 
-#happy{
+button {
+  background-color: #ffa500; /* Orange */
+  border: none;
   color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
