@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvass')
 const context = canvas.getContext('2d')
 let firstMousePosition = null
-let lastMousePosition = { x: null, y: null }
+let lastMousePosition = null
 
 const make_base = () => {
   base_image = new Image()
@@ -14,9 +14,12 @@ const make_base = () => {
 make_base()
 
 const onMouseMove = (e) => {
-  if (e.buttons === 0 && !firstMousePosition) return
+  let isMousePressed = e.buttons > 0
+
+  if (!isMousePressed && !firstMousePosition) return
 
   const rect = canvas.getBoundingClientRect()
+
   const coordinates = {
     x: e.x - rect.left + window.scrollX,
     y: e.y + window.scrollX
@@ -27,25 +30,35 @@ const onMouseMove = (e) => {
     context.beginPath()
   }
 
-  if (lastMousePosition.x && lastMousePosition.y) {
+  continueShape(coordinates)
+
+  lastMousePosition = coordinates
+
+  if (!isMousePressed && firstMousePosition) {
+    finishShape()
+  }
+}
+
+const continueShape = (coordinates) => {
+  if (lastMousePosition) {
     context.lineTo(coordinates.x, coordinates.y)
   } else {
     context.moveTo(coordinates.x, coordinates.y)
     context.lineTo(coordinates.x, coordinates.y)
   }
 
-  lastMousePosition = coordinates
+  context.lineWidth = 3
+  context.stroke()
+}
 
-  if (e.buttons === 0 && firstMousePosition) {
-    context.lineTo(firstMousePosition.x, firstMousePosition.y)
-    context.closePath()
-    context.lineWidth = 3
-    context.fillStyle = '#000000'
-    context.fill()
-    context.stroke()
-    firstMousePosition = null
-    lastMousePosition = { x: null, y: null }
-  }
+const finishShape = () => {
+  context.lineTo(firstMousePosition.x, firstMousePosition.y)
+  context.closePath()
+  context.fillStyle = '#000000'
+  context.fill()
+  context.stroke()
+  firstMousePosition = null
+  lastMousePosition = null
 }
 
 canvas.addEventListener("mousemove", onMouseMove)
