@@ -106,13 +106,6 @@ const drawShapes = () => {
 
 const onClickButton = () => {
   isDay = !isDay
-  if (isDay) {
-    document.body.style.backgroundColor = "#fff"
-    canvas.style.backgroundColor = "#fff"
-  } else {
-    document.body.style.backgroundColor = "#000"
-    canvas.style.backgroundColor = "#000"
-  }
 }
 
 const interval = setInterval(drawShapes, 10)
