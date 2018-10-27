@@ -7,9 +7,9 @@ let firstMousePosition = null
 let lastMousePosition = null
 
 const make_base = () => {
-  base_image.onload = function(){
-    const base_image = new Image()
-    base_image.src = 'img/pumpkin.png'
+  const base_image = new Image()
+  base_image.src = 'img/pumpkin.png'
+  base_image.onload = () => {
     context.drawImage(base_image, 0, 0);
   }
 }
