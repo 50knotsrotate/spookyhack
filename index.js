@@ -2,6 +2,8 @@ const canvas = document.getElementById('canvass')
 const context = canvas.getContext('2d')
 const pumpkinCoords = { x: 390, y: 300, r: 240 }
 
+
+
 const checkPumpkinBounds = (x, y) => Math.sqrt((x-pumpkinCoords.x)*(x-pumpkinCoords.x) + (y-pumpkinCoords.y)*(y-pumpkinCoords.y)) < pumpkinCoords.r
 let firstMousePosition = null
 let lastMousePosition = null

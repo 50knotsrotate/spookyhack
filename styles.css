@@ -18,3 +18,8 @@ canvas:active {
     cursor: url(http://www.rw-designer.com/cursor-extern.php?id=60402), pointer;
 }
 
+#header{
+position: relative;
+left: 42%;
+  width: 400px;
+  hei:ght 100px;}
