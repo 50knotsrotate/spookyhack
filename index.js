@@ -2,6 +2,8 @@ const canvas = document.getElementById('canvass')
 const context = canvas.getContext('2d')
 const pumpkinCoords = { x: 390, y: 300, r: 240 }
 
+let candle = document.getElementById('candleButton');
+
 
 let shapes = []
 noise.seed(0)
@@ -106,8 +108,16 @@ const drawShapes = () => {
 
 const onClickButton = () => {
   isDay = !isDay
+
+  if(isDay){
+    document.getElementById("candleButton").innerHTML="Add candle"
+  } else {
+    document.getElementById("candleButton").innerHTML="Remove candle"
+  }
 }
+
 
 const interval = setInterval(drawShapes, 10)
 
 canvas.addEventListener("mousemove", onMouseMove)
+
