@@ -2,8 +2,6 @@ const canvas = document.getElementById('canvass')
 const context = canvas.getContext('2d')
 const pumpkinCoords = { x: 390, y: 300, r: 240 }
 
-
-
 const checkPumpkinBounds = (x, y) => Math.sqrt((x-pumpkinCoords.x)*(x-pumpkinCoords.x) + (y-pumpkinCoords.y)*(y-pumpkinCoords.y)) < pumpkinCoords.r
 let firstMousePosition = null
 let lastMousePosition = null
@@ -20,10 +18,6 @@ const make_base = () => {
 make_base()
 
 const onMouseMove = (e) => {
-  let isMousePressed = e.buttons > 0
-
-  if (!isMousePressed && !firstMousePosition) return
-
   const rect = canvas.getBoundingClientRect()
 
   const coordinates = {
@@ -31,7 +25,20 @@ const onMouseMove = (e) => {
     y: e.y + window.scrollX
   }
 
-  if (!checkPumpkinBounds(coordinates.x, coordinates.y)) return
+  let isMousePressed = e.buttons > 0
+
+  if (!checkPumpkinBounds(coordinates.x, coordinates.y)) {
+    document.body.style.cursor = 'default'
+    return
+  } else {
+    if (isMousePressed) {
+      document.body.style.cursor = 'url(http://www.rw-designer.com/cursor-extern.php?id=60402), default'
+    } else {
+      document.body.style.cursor = 'url(http://www.rw-designer.com/cursor-extern.php?id=65179), default'
+    }
+  }
+
+  if (!isMousePressed && !firstMousePosition) return
 
   if (!firstMousePosition) {
     firstMousePosition = coordinates
