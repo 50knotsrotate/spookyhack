@@ -4,6 +4,8 @@ body {
   margin: 0;
 }
 canvas {
+  position: relative;
+  display: block;
   width: 800px;
   height: 800px;
   margin: 0 auto;
