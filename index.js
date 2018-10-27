@@ -26,7 +26,7 @@ const onMouseMove = (e) => {
   }
 
   let isMousePressed = e.buttons > 0
-  
+
   if (!isMousePressed && !currentShape) return
 
   if (!checkPumpkinBounds(coordinates.x, coordinates.y)) {
@@ -40,7 +40,7 @@ const onMouseMove = (e) => {
     }
   }
 
-  if (!isMousePressed && !firstMousePosition) return
+  if (!isMousePressed && !currentShape) return
 
   if (!currentShape) {
     currentShape = []
