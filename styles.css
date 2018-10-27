@@ -1,9 +1,8 @@
 body {
   background-color: #ddd;
 }
-canvas{
-width:800px;
-height: 800px;
-background-color: gray;
-
+canvas {
+  width: 800px;
+  height: 800px;
+  background-color: gray;
 }
