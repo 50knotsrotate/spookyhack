@@ -122,9 +122,9 @@ const onReset = () => {
   isDay = true
   time = 0
   currentShape = null
+  document.getElementById("candleButton").innerHTML="Add candle"
 }
 
 const interval = setInterval(drawShapes, 10)
 
 canvas.addEventListener("mousemove", onMouseMove)
-
