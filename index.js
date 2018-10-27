@@ -1,6 +1,8 @@
 const canvas = document.getElementById('canvass')
 const context = canvas.getContext('2d')
 const pumpkinCoords = { x: 390, y: 300, r: 240 }
+
+
 let shapes = []
 noise.seed(0)
 let isDay = true

@@ -8,12 +8,26 @@ canvas {
   position: relative;
   display: block;
   margin: 0 auto;
-  background-color: #fff;
+  background-image: url('https://www.fun-lover.com/animation/halloween/Bats/FlyingBats-1.gif');
+  background-repeat: repeat-x;
 }
+
+<<<<<<< HEAD
+canvas:hover {
+   cursor: url(http://www.rw-designer.com/cursor-extern.php?id=65179), pointer;
+}
+
+canvas:active {
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=60402), pointer;
 
 #header {
   position: relative;
   left: 42%;
   width: 400px;
   height: 100px;
+
+}
+
+#happy{
+  color: white;
 }
