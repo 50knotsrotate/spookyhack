@@ -116,6 +116,13 @@ const onClickButton = () => {
   }
 }
 
+const onReset = () => {
+  shapes = []
+  noise.seed(0)
+  isDay = true
+  time = 0
+  currentShape = null
+}
 
 const interval = setInterval(drawShapes, 10)
 
