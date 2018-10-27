@@ -1,14 +1,17 @@
 const canvas = document.getElementById('canvass')
 const context = canvas.getContext('2d')
+const pumpkinCoords = { x: 390, y: 300, r: 240 }
+
+const checkPumpkinBounds = (x, y) => Math.sqrt((x-pumpkinCoords.x)*(x-pumpkinCoords.x) + (y-pumpkinCoords.y)*(y-pumpkinCoords.y)) < pumpkinCoords.r
 let firstMousePosition = null
 let lastMousePosition = null
 
 
 const make_base = () => {
-  base_image = new Image()
+  const base_image = new Image()
   base_image.src = 'img/pumpkin.png'
-  base_image.onload = function(){
-    context.drawImage(base_image, 0, 0);
+  base_image.onload = () => {
+    context.drawImage(base_image, 0, 0)
   }
 }
 
@@ -26,9 +29,15 @@ const onMouseMove = (e) => {
     y: e.y + window.scrollX
   }
 
+  if (!checkPumpkinBounds(coordinates.x, coordinates.y)) return
+
   if (!firstMousePosition) {
     firstMousePosition = coordinates
     context.beginPath()
+  }
+
+  if (!checkPumpkinBounds(coordinates.x, coordinates.y)) {
+    finishShape()
   }
 
   continueShape(coordinates)
