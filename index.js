@@ -10,7 +10,7 @@ const make_base = () => {
   const base_image = new Image()
   base_image.src = 'img/pumpkin.png'
   base_image.onload = () => {
-    context.drawImage(base_image, 0, 0);
+    context.drawImage(base_image, 0, 0)
   }
 }
 
@@ -28,11 +28,15 @@ const onMouseMove = (e) => {
     y: e.y + window.scrollX
   }
 
-  console.log(checkPumpkinBounds(coordinates.x, coordinates.y))
+  if (!checkPumpkinBounds(coordinates.x, coordinates.y)) return
 
   if (!firstMousePosition) {
     firstMousePosition = coordinates
     context.beginPath()
+  }
+
+  if (!checkPumpkinBounds(coordinates.x, coordinates.y)) {
+    finishShape()
   }
 
   continueShape(coordinates)
