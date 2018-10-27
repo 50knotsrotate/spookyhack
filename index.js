@@ -3,8 +3,6 @@ const context = canvas.getContext('2d')
 let firstMousePosition = null
 let lastMousePosition = null
 
-//<<<<<<< HEAD
-
 
 const make_base = () => {
   base_image = new Image()
@@ -13,7 +11,6 @@ const make_base = () => {
     context.drawImage(base_image, 0, 0);
   }
 }
-//>>>>>>> 9849285c43f3b17f94f27577d99ee1f6d160aab5
 
 make_base()
 
